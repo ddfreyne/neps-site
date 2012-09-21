@@ -1,0 +1,5 @@
+.status-new         td { background-color: #fdd; }
+.status-accepted    td { background-color: #ffd; }
+.status-started     td { background-color: #dfd; }
+.status-implemented td { background-color: #dff; }
+.status-released    td { background-color: #ddf; }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= @title %></title>
+		<link rel="stylesheet" href="/static/assets/base.css">
+		<link rel="stylesheet" href="/static/assets/style.css">
+		<link rel="stylesheet" href="/static/assets/custom.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+				<h1><a href="/">NEP-Tracker</a></h1>
+			</div>
+			<div id="wrapper" class="wat-cf">
+				<div id="main">
+                    <%= yield %>
+					<div id="footer">
+						<div class="block">
+							<p>Copyright &copy; 2012 Denis Defreyne. Powered by <a href="http://golang.org">Go</a> and <a href="http://gorilla-web.appspot.com/">Gorilla</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

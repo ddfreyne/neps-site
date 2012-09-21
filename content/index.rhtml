@@ -1,0 +1,108 @@
+<div class="block">
+    <div class="content">
+        <h2>nanoc Enhancement Proposals repository</h2>
+        <div class="inner">
+            <p>The nanoc enhancement proposals (NEPs, inspired by Python) are meant to structure ideas for features, enhancements and changes in general in a more formal way.</p>
+        </div>
+    </div>
+</div>
+
+<div class="block" id="list">
+    <div class="secondary-navigation">
+        <ul class="wat-cf">
+            <li class="first active"><a href="#list">List</a></li>
+            <li><a href="#list-by-status">List (by status)</a></li>
+            <li class="last"><a href="#quick-wins">Quick wins</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2 class="title">List of NEPs</h2>
+        <div class="inner">
+            <table class="table">
+                <tr>
+                    <th class="first">ID</th>
+                    <th>Summary</th>
+                    <th>Status</th>
+                </tr>
+                <% neps.each do |nep| %>
+                    <tr class="status-<%= nep[:status].to_s %>">
+                        <td><a href="<%= nep.path %>">NEP-<%= nep[:number] %></a></td>
+                        <td><a href="<%= nep.path %>"><%= nep[:title] %></a></td>
+                        <td><%= nep[:status].to_s.capitalize %></td>
+                    </tr>
+                <% end %>
+            </table>
+            <div class="actions-bar wat-cf">
+                <div class="actions">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="block" id="list-by-status">
+    <div class="secondary-navigation">
+        <ul class="wat-cf">
+            <li class="first"><a href="#list">List</a></li>
+            <li class="active"><a href="#list-by-status">List (by status)</a></li>
+            <li class="last"><a href="#quick-wins">Quick wins</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2 class="title">List of NEPs by status</h2>
+        <div class="inner">
+            <% [ :new, :accepted, :started, :implemented, :released ].each do |status| %>
+                <h3 class="title"><%= status.to_s.capitalize %></h3>
+                <table class="table">
+                    <tr>
+                        <th class="first">ID</th>
+                        <th>Summary</th>
+                    </tr>
+                    <% neps.select { |nep| nep[:status] == status}.each do |nep| %>
+                        <tr class="status-<%= nep[:status].to_s %>">
+                            <td><a href="<%= nep.path %>">NEP-<%= nep[:number] %></a></td>
+                            <td><a href="<%= nep.path %>"><%= nep[:title] %></a></td>
+                        </tr>
+                    <% end %>
+                </table>
+                <div class="actions-bar wat-cf">
+                    <div class="actions">
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="block" id="quick-wins">
+    <div class="secondary-navigation">
+        <ul class="wat-cf">
+            <li class="first"><a href="#list">List</a></li>
+            <li><a href="#list-by-status">List (by status)</a></li>
+            <li class="last active"><a href="#quick-wins">Quick wins</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2 class="title">Quick Wins</h2>
+        <div class="inner">
+            <table class="table">
+                <tr>
+                    <th class="first">ID</th>
+                    <th>Summary</th>
+                    <th>Status</th>
+                </tr>
+                <% neps.select { |nep| nep[:is_quick_win] }.each do |nep| %>
+                    <tr class="status-<%= nep[:status].to_s %>">
+                        <td><a href="<%= nep.path %>">NEP-<%= nep[:number] %></a></td>
+                        <td><a href="<%= nep.path %>"><%= nep[:title] %></a></td>
+                        <td><%= nep[:status].to_s.capitalize %></td>
+                    </tr>
+                <% end %>
+            </table>
+            <div class="actions-bar wat-cf">
+                <div class="actions">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
