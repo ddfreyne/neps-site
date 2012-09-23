@@ -14,6 +14,13 @@
 #   because “*” matches zero or more characters.
 
 preprocess do
+  # Remove non-NEPs from /neps/*/
+  items.delete_if do |i|
+    parts = i.identifier.scan(/[^\/]+/)
+    parts.size == 2 && parts[0] == 'neps' && parts[1] !~ %r{^NEP-}
+  end
+
+  # Assign number and title
   neps.each do |nep|
     nep[:number] = nep.identifier[/\d+/].to_i
     nep[:title]  = nep.identifier.match(/\d+:-(.*)\/$/)[1].gsub('-', ' ')
