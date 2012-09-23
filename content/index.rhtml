@@ -63,7 +63,7 @@ title: "nanoc Enhancement Proposals"
                         <th class="first">ID</th>
                         <th>Summary</th>
                     </tr>
-                    <% neps.select { |nep| nep[:status] == status}.each do |nep| %>
+                    <% neps.select { |nep| nep[:status] == status.to_s }.each do |nep| %>
                         <tr class="status-<%= nep[:status].to_s %>">
                             <td><a href="<%= nep.path %>">NEP-<%= nep[:number] %></a></td>
                             <td><a href="<%= nep.path %>"><%= nep[:title] %></a></td>
