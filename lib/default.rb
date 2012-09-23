@@ -8,7 +8,7 @@ def root_item
 end
 
 def neps
-  @items.select { |i| i.identifier =~ %r{^/neps/.+} }.sort_by { |i| i[:number] }
+  @items.select { |i| i.identifier =~ %r{^/NEP-.+} }.sort_by { |i| i[:number] }
 end
 
 def link_to_nep(nep)

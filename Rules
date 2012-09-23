@@ -20,10 +20,20 @@ preprocess do
     parts.size == 2 && parts[0] == 'neps' && parts[1] !~ %r{^NEP-}
   end
 
+  # Remove : from neps
+  items.each do |i|
+    i.identifier.sub!(':', '')
+  end
+
+  # Remove /neps/ prefix
+  items.each do |i|
+    i.identifier.sub!(/^\/neps/, '')
+  end
+
   # Assign number and title
   neps.each do |nep|
     nep[:number] = nep.identifier[/\d+/].to_i
-    nep[:title]  = nep.identifier.match(/\d+:-(.*)\/$/)[1].gsub('-', ' ')
+    nep[:title]  = nep.identifier.match(/\d+-(.*)\/$/)[1].gsub('-', ' ')
   end
 end
 
@@ -37,7 +47,7 @@ compile '/' do
   filter :relativize_paths, :type => :html
 end
 
-compile '/neps/*' do
+compile '/NEP-*' do
   filter :redcarpet, :renderer => ColorizedHTMLRenderer, :options => { :fenced_code_blocks => true }
   layout 'detail-box'
   layout 'default'
