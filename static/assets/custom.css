@@ -3,3 +3,46 @@
 .status-started     td { background-color: #dfd; }
 .status-implemented td { background-color: #dff; }
 .status-released    td { background-color: #ddf; }
+
+pre .comment {
+    color: #666666;
+}
+
+pre .key {
+    color: #6a0;
+}
+
+pre .string, .value {
+    color: #772;
+    background: #ffc;
+}
+
+pre .constant, .class, .symbol {
+    color: #c60;
+}
+
+pre .function {
+    color: #e21;
+}
+
+pre .instance-variable, .local_variable {
+    color: #6a0;
+}
+
+pre .reserved, .predefined, .predefined-constant {
+    color: #09c;
+}
+
+pre .tag, .keyword {
+    color: #8c5;
+}
+
+pre .integer, pre.attribute_name {
+    color: #a50;
+}
+
+pre .m {
+    padding: 0 0.1em;
+    background: #555;
+    color: #fff;
+}

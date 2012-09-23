@@ -33,6 +33,7 @@ end
 
 compile '/neps/*' do
   filter :kramdown
+  filter :colorize_syntax
   layout 'detail-box'
   layout 'default'
   filter :relativize_paths, :type => :html
