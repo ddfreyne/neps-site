@@ -15,7 +15,6 @@
 
 preprocess do
   neps.each do |nep|
-    nep[:status] = nep[:Status].to_sym
     nep[:number] = nep.identifier[/\d+/].to_i
     nep[:title]  = nep.identifier.match(/\d+:-(.*)\/$/)[1].gsub('-', ' ')
   end
