@@ -32,8 +32,7 @@ compile '/' do
 end
 
 compile '/neps/*' do
-  filter :kramdown
-  filter :colorize_syntax
+  filter :redcarpet, :renderer => ColorizedHTMLRenderer, :options => { :fenced_code_blocks => true }
   layout 'detail-box'
   layout 'default'
   filter :relativize_paths, :type => :html
