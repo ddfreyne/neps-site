@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title><%= @title %></title>
-		<link rel="stylesheet" href="/static/assets/base.css">
-		<link rel="stylesheet" href="/static/assets/style.css">
-		<link rel="stylesheet" href="/static/assets/custom.css">
-	</head>
-	<body>
-		<div id="container">
-			<div id="header">
-				<h1><a href="/">NEP-Tracker</a></h1>
-			</div>
-			<div id="wrapper" class="wat-cf">
-				<div id="main">
+    <head>
+        <title><%= @item[:title] %></title>
+        <link rel="stylesheet" href="/static/assets/base.css">
+        <link rel="stylesheet" href="/static/assets/style.css">
+        <link rel="stylesheet" href="/static/assets/custom.css">
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1><a href="/">NEP-Tracker</a></h1>
+            </div>
+            <div id="wrapper" class="wat-cf">
+                <div id="main">
                     <%= yield %>
-					<div id="footer">
-						<div class="block">
-							<p>Copyright &copy; 2012 Denis Defreyne. Powered by <a href="http://golang.org">Go</a> and <a href="http://gorilla-web.appspot.com/">Gorilla</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+                    <div id="footer">
+                        <div class="block">
+                            <p>Copyright &copy; 2012 Denis Defreyne. Powered by <a href="http://nanoc.stoneship.org">nanoc</a>, naturally.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sidebar">
+                    <div class="block notice">
+                        <h3>Statuses</h3>
+                        <div class="content">
+                            <p><strong>New:</strong><br>NEP contains good ideas, but needs more investigation before it can be accepted</p>
+                            <p><strong>Accepted:</strong><br>NEP contains refined ideas and will be developed at some point</p>
+                            <p><strong>Started:</strong><br>NEP is in the progress of being implemented</p>
+                            <p><strong>Implemented:</strong><br> NEP has been implemented but is not yet available in a released nanoc version</p>
+                            <p><strong>Released:</strong><br> NEP has been implemented and is available in a released version</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
